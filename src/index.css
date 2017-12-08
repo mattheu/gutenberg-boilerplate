@@ -1,0 +1,68 @@
+.rail {
+	display: grid;
+	grid-template-columns: repeat( 3, auto );
+	grid-auto-rows: 150px;
+	grid-gap: 10px;
+}
+
+.rail-item {
+	background: rgba(0,0,0,0.1);
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.post-select .modal {
+	position: fixed;
+	top: 20px;
+}
+
+.post-select .media-frame-title {
+	left: 300px;
+}
+.post-select .media-frame-menu {
+	width: 300px;
+}
+
+.post-select .post-select-filters {
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.post-select .post-select-filters input[type="text"],
+.post-select .post-select-filters input[type="search"] {
+	width: 100%;
+	border-color: #CCC;
+}
+
+.post-select .post-select-filters input[type="search"] {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-size: 16px;
+}
+
+.post-select .media-modal-content {
+	padding-left: 300px;
+	padding-top: 50px;
+}
+
+.post-select-result {
+	padding: 10px 20px;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.post-select-result:first-child {
+	border-top: 1px solid #e2e4e7;
+}
+
+.post-select-result:nth-child(odd) {
+	background: #f8f9f9;
+}
+
+.post-select-result h2 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+.post-select-result.focused {
+	background: rgb(255,255,200);
+}
