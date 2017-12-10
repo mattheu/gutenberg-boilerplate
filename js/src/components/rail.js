@@ -1,5 +1,4 @@
-/* global React */
-
+import React from 'react';
 import PostSelect from './post-select';
 
 export const RailItem = ({ post }) => (

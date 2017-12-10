@@ -2,19 +2,21 @@
   "name": "hm-gutenberg-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
-    "start": "react-wp-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "webpack",
+    "dev": "webpack --watch"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.34",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
+    "@babel/preset-react": "^7.0.0-beta.34",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "classnames": "^2.2.5",
-    "react-wp-scripts": "^0.1.1"
+    "prop-types": "^15.6.0",
+    "react-wp-scripts": "^0.1.1",
+    "webpack": "^3.10.0"
   }
 }

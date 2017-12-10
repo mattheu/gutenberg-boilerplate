@@ -1,4 +1,6 @@
-/* global React, wp */
+import React from 'react';
+import PropTypes from 'prop-types';
+import wp from 'wp';
 import _uniqueId from 'lodash/uniqueId';
 import _pull from 'lodash/pull';
 import classNames from 'classnames';
@@ -7,9 +9,10 @@ const { Button } = wp.components;
 const { __ } = wp.i18n;
 
 const PostSelectModalFilters = props => {
+	const id = _uniqueId( 'post-select-modal-filters' );
 	return <div className="media-menu post-select-filters">
-		<label htmlFor={ this.id + '-search' } className="screen-reader-text">{ __( 'Search posts' ) }</label>
-		<input id={ this.id + '-search' } placeholder={ __( 'Search posts...' ) } type="search" />
+		<label htmlFor={ id + '-search' } className="screen-reader-text">{ __( 'Search posts' ) }</label>
+		<input id={ id + '-search' } placeholder={ __( 'Search posts...' ) } type="search" />
 		<select>
 			<option>Category</option>
 			<option>Tag</option>
