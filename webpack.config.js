@@ -1,14 +1,40 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin('[name].css');
+
+// Configuration for the ExtractTextPlugin.
+const extractConfig = {
+	use: [
+		{ loader: 'raw-loader' },
+		{
+			loader: 'postcss-loader',
+			options: {
+				plugins: [
+					require( 'autoprefixer' ),
+				],
+			},
+		},
+		{
+			loader: 'sass-loader',
+			options: {
+				includePaths: [ 'css' ],
+				outputStyle: 'production' === process.env.NODE_ENV ?
+					'compressed' : 'nested',
+			},
+		},
+	],
+};
 
 module.exports = {
 	entry : {
-		editor: './js/src/editor.js',
-		frontend: './js/src/frontend.js'
+		editor: './js/editor.js',
+		frontend: './js/frontend.js',
 	},
 	output: {
-		path: path.resolve( __dirname, 'js/build' ),
-		filename: '[name].bundle.js'
+		path: path.resolve( __dirname, 'build' ),
+		filename: '[name].bundle.js',
 	},
 	module: {
 		rules: [
@@ -31,17 +57,27 @@ module.exports = {
 						],
 					}
 				}
-			}
+			},
+			{
+				test: /\.s?css$/,
+				use: extractSass.extract( extractConfig ),
+			},
 		]
 	},
+	plugins: [
+		extractSass
+	],
 	externals: {
 		'jquery': 'jQuery',
 		'react': 'React',
-		'react-dom': 'ReactDom',
+		'react-dom': 'ReactDOM',
+		'react-dom/server': 'ReactDOMServer',
+		'tinymce': 'tinymce',
+		'moment': 'moment',
 		'wp': 'wp',
 	},
 	stats: {
-		colors: true
+		colors: true,
 	},
-	devtool: 'source-map'
+	devtool: 'source-map',
 };

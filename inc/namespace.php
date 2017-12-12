@@ -16,17 +16,17 @@ function setup() {
 function enqueue_block_editor_assets() {
 	wp_enqueue_script(
 		'hm-gb-boilerplate-editor',
-		HM_GB_PLUGIN_URL . '/js/build/editor.bundle.js',
+		HM_GB_PLUGIN_URL . '/build/editor.bundle.js',
 		[ 'wp-blocks', 'wp-element' ],
-		filemtime( HM_GB_PLUGIN_PATH . '/js/build/editor.bundle.js' ),
+		filemtime( HM_GB_PLUGIN_PATH . '/build/editor.bundle.js' ),
 		false
 	);
 
 	wp_enqueue_style(
 		'hm-gb-boilerplate-editor',
-		HM_GB_PLUGIN_URL . '/css/editor.css',
+		HM_GB_PLUGIN_URL . '/build/editor.css',
 		[],
-		filemtime( HM_GB_PLUGIN_PATH . '/css/editor.css' )
+		filemtime( HM_GB_PLUGIN_PATH . '/build/editor.css' )
 	);
 }
 
@@ -36,16 +36,16 @@ function enqueue_block_editor_assets() {
 function enqueue_block_assets() {
 	wp_enqueue_script(
 		'hm-gb-boilerplate-frontend',
-		HM_GB_PLUGIN_URL . '/js/build/frontend.bundle.js',
+		HM_GB_PLUGIN_URL . '/build/frontend.bundle.js',
 		[ 'wp-blocks', 'wp-element' ],
-		filemtime( HM_GB_PLUGIN_PATH . '/js/build/frontend.bundle.js' ),
+		filemtime( HM_GB_PLUGIN_PATH . '/build/frontend.bundle.js' ),
 		false
 	);
 
 	wp_enqueue_style(
 		'hm-gb-boilerplate-frontend',
-		HM_GB_PLUGIN_URL . '/css/frontend.css',
+		HM_GB_PLUGIN_URL . '/build/frontend.css',
 		[],
-		filemtime( HM_GB_PLUGIN_PATH . '/css/frontend.css' )
+		filemtime( HM_GB_PLUGIN_PATH . '/build/frontend.css' )
 	);
 }
