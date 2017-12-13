@@ -24,6 +24,6 @@ Example Gutenberg plugin that follows Human Made coding standards. Can be used t
 
 ## FAQs
 
-**I need a new JS file - eg to load on the front end.**
+**I need a new JS file - e.g. One that is loaded on the front end.**
 
 You can easily add new JS files to the build process, just edit `webpack.config.js` and add the new file to the `entry` section.
