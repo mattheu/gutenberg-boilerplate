@@ -22,14 +22,14 @@ const PostSelectModalFilters = props => {
 
 const PostSelectModalContent = props => {
 	return <div>
-		{ [1,2,3,4].map( id => {
+		{ [ 1, 2, 3, 4 ].map( id => {
 			return <div
 				key={ id }
 				onClick={ () => props.onToggleSelectedPosts( id ) }
 				className={ classNames( {
 					'post-select-result': true,
-					'focused': props.selectedPosts.indexOf( id ) >= 0,
-				})}
+					'focused':            props.selectedPosts.indexOf( id ) >= 0,
+				} )}
 			>
 				<h2>Post title</h2>
 				<div className="post-select-result-meta">Type, Date, author</div>
@@ -39,12 +39,10 @@ const PostSelectModalContent = props => {
 }
 
 class PostSelectModal extends React.Component {
-	state = {
-		selectedPosts: [],
-	}
+	state = { selectedPosts: [] }
 
-	constructor(props) {
-		super(props);
+	constructor( props ) {
+		super( props );
 		this.id = _uniqueId( 'post-select-modal' );
 	}
 
@@ -72,7 +70,9 @@ class PostSelectModal extends React.Component {
 				</div>
 				<div className="media-modal-content">
 					<PostSelectModalContent
-						onToggleSelectedPosts={ id => { this.togglePostSelected( id ) } }
+						onToggleSelectedPosts={ id => {
+							this.togglePostSelected( id )
+						} }
 						selectedPosts={ this.state.selectedPosts }
 					/>
 				</div>
@@ -84,7 +84,7 @@ class PostSelectModal extends React.Component {
 		const { selectedPosts } = this.state;
 
 		if ( selectedPosts.indexOf( id ) >= 0 ) {
-			this.setState( { selectedPosts: _pull( selectedPosts, id ) })
+			this.setState( { selectedPosts: _pull( selectedPosts, id ) } )
 		} else {
 			let newSelectedPosts = selectedPosts.slice();
 			newSelectedPosts.push( id );
@@ -94,21 +94,15 @@ class PostSelectModal extends React.Component {
 }
 
 class PostSelect extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			modalVisible: false,
-		}
+	constructor( props ) {
+		super( props );
+		this.state = { modalVisible: false }
 	}
 
 	render(){
-		const {
-			btnText = 'Select post',
-		} = this.props;
+		const { btnText = 'Select post' } = this.props;
 
-		const {
-			modalVisible,
-		} = this.state;
+		const { modalVisible } = this.state;
 
 		return <div className="post-select">
 			<Button

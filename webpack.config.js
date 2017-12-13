@@ -1,36 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const extractSass = new ExtractTextPlugin('[name].css');
-
-// Configuration for the ExtractTextPlugin.
-const extractConfig = {
-	use: [
-		{ loader: 'raw-loader' },
-		{
-			loader: 'postcss-loader',
-			options: {
-				plugins: [
-					require( 'autoprefixer' ),
-				],
-			},
-		},
-		{
-			loader: 'sass-loader',
-			options: {
-				includePaths: [ 'css' ],
-				outputStyle: 'production' === process.env.NODE_ENV ?
-					'compressed' : 'nested',
-			},
-		},
-	],
-};
 
 module.exports = {
 	entry : {
 		editor: './js/editor.js',
-		frontend: './js/frontend.js',
 	},
 	output: {
 		path: path.resolve( __dirname, 'build' ),
@@ -58,15 +31,8 @@ module.exports = {
 					}
 				}
 			},
-			{
-				test: /\.s?css$/,
-				use: extractSass.extract( extractConfig ),
-			},
 		]
 	},
-	plugins: [
-		extractSass
-	],
 	externals: {
 		'jquery': 'jQuery',
 		'react': 'React',

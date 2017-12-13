@@ -34,14 +34,6 @@ function enqueue_block_editor_assets() {
  * Enqueue block assets in both the admin and front end.
  */
 function enqueue_block_assets() {
-	wp_enqueue_script(
-		'hm-gb-boilerplate-frontend',
-		HM_GB_PLUGIN_URL . '/build/frontend.bundle.js',
-		[ 'wp-blocks', 'wp-element' ],
-		filemtime( HM_GB_PLUGIN_PATH . '/build/frontend.bundle.js' ),
-		false
-	);
-
 	wp_enqueue_style(
 		'hm-gb-boilerplate-frontend',
 		HM_GB_PLUGIN_URL . '/build/frontend.css',

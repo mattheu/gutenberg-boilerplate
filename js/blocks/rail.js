@@ -1,20 +1,19 @@
-/* global React, wp */
+import React from 'react'
+import _uniq from 'lodash/uniq';
+import wp from 'wp'
 
 import Rail from '../components/rail';
-import _uniq from 'lodash/uniq';
 
-const {
-	registerBlockType,
-} = wp.blocks;
+const { registerBlockType } = wp.blocks;
 
 registerBlockType( 'humanmade/gb-boilerplate-demo', {
-	title: 'HM Test - Rail',
-	icon: 'dashicons-grid-view',
+	title:    'HM Test - Rail',
+	icon:     'dashicons-grid-view',
 	category: 'layout',
 
 	attributes: {
 		posts: {
-			type: 'array',
+			type:    'array',
 			default: [
 				{ id: 1 },
 				{ id: 2 },
@@ -39,5 +38,5 @@ registerBlockType( 'humanmade/gb-boilerplate-demo', {
 		const { posts = [] } = attributes;
 		const postIds = posts.map( post => post.id );
 		return <div>{ postIds.join( ',' ) }</div>
-	}
+	},
 } );
